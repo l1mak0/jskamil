@@ -7,8 +7,6 @@
 // btn2.addEventListener("click", function () {
 //     document.body.style.background = "white"
 // });
-
-
 // const users = [
 //     {name: "Администратор", login: "admin", password: "admin"},
 //     {name: "Иван", login: "ivan", password: "1234"}
@@ -26,7 +24,6 @@
 //         }
 //     }
 // }
-
 // const translates = [
 //     {ru:"яблоко", en:"apple"},
 //     {ru:"груша", en:"pear"},
@@ -45,8 +42,6 @@
 //         alert(translates[i].ru)
 //     }
 // }
-
-
 // let UserStr = prompt("Введите что-то"),
 //     lowerCount = 0,
 //     upperCount = 0;
@@ -62,24 +57,44 @@
 // }
 //
 // alert(`В строке: ${UserStr} находится:\n Заглвных букв: ${upperCount}:\n Строчных букв ${lowerCount}`)
+//
+//
+// let numbers = [];
+//
+// while (true){
+//     let number = prompt("Введите число для завершения нажмите 0");
+//
+//     numbers.push(number);
+//
+//     if (number === 0){
+//         break;
+//     }
+//     alert(`Введеные числа: ` + numbers)
+//
+//     let sum = 0;
+//     for (let i = 0; i < numbers.length; i++){
+//         sum += numbers[i];
+//     }
+// }
 
 
+function helloUser() {
+    const username = prompt("Введите своё имя:");
+    const time = +prompt("Введите текущие время:");
 
-
-let numbers = [];
-
-while (true){
-    let number = prompt("Введите число для завершения нажмите 0");
-
-    numbers.push(number);
-
-    if (number === 0){
-        break;
+    if (time <= 0 || time > 6) {
+        return `Доброй ночи, ${username}!`;
+    } else if (time > 7 || time < 10) {
+        return `Доброе утро, ${username}!`;
+    } else if (time >= 11 || time < 18) {
+        return `Доброе день, ${username}!`;
     }
-    alert(`Введеные числа: ` + numbers)
-
-    let sum = 0;
-    for (let i = 0; i < numbers.length; i++){
-        sum += numbers[i];
+    else if (time >= 19 || time < 23) {
+        return `Добрый вечер, ${username}!`;
+    }
+    else {
+        return `Введенно не корректное значение!`
     }
 }
+
+console.log(helloUser());
