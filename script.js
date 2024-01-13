@@ -78,23 +78,69 @@
 // }
 
 
-function helloUser() {
-    const username = prompt("Введите своё имя:");
-    const time = +prompt("Введите текущие время:");
+// function helloUser() {
+//     const username = prompt("Введите своё имя:");
+//     const time = +prompt("Введите текущие время:");
+//
+//     if (time <= 0 || time > 6) {
+//         return `Доброй ночи, ${username}!`;
+//     } else if (time > 7 || time < 10) {
+//         return `Доброе утро, ${username}!`;
+//     } else if (time >= 11 || time < 18) {
+//         return `Доброе день, ${username}!`;
+//     }
+//     else if (time >= 19 || time < 23) {
+//         return `Добрый вечер, ${username}!`;
+//     }
+//     else {
+//         return `Введенно не корректное значение!`
+//     }
+// }
+//
+// console.log(helloUser());
 
-    if (time <= 0 || time > 6) {
-        return `Доброй ночи, ${username}!`;
-    } else if (time > 7 || time < 10) {
-        return `Доброе утро, ${username}!`;
-    } else if (time >= 11 || time < 18) {
-        return `Доброе день, ${username}!`;
-    }
-    else if (time >= 19 || time < 23) {
-        return `Добрый вечер, ${username}!`;
-    }
-    else {
-        return `Введенно не корректное значение!`
-    }
-}
 
-console.log(helloUser());
+// let randomNumbers = [];
+// // let numbers = [];
+// //
+// for (let i = 0; i < 20; i++){
+//     randomNumbers.push(Math.floor(Math.random() * 20))
+// }
+// console.log(randomNumbers)
+// for (let num of randomNumbers){
+//     if (num >= 5 && num <= 12){
+//         numbers.push(num)
+//     }
+// }
+// console.log(numbers)
+//
+//
+// let filter = randomNumbers.filter(num => num >= 5 && num <= 12);
+//
+// console.log(filter)
+//
+//
+// let sort1 = randomNumbers.slice().sort((a, b) => a - b);
+// console.log(sort1)
+//
+// let sort2 = randomNumbers.slice().sort((a, b) => b - a);
+// console.log(sort2)
+
+// for (let i = 0; i < randomNumbers.length; i++){
+//     randomNumbers[i] = randomNumbers[i] * 2;
+// }
+// console.log(randomNumbers)
+
+// let umnoj = randomNumbers.map(num => num * 2);
+//
+// console.log(umnoj)
+
+// let summa = 0;
+// for (let i = 0; i < randomNumbers.length; i++){
+//     summa += randomNumbers[i];
+// }
+// console.log(summa)
+//
+// let sum = randomNumbers.reduce((res, current) => res + current, 0)
+//
+// console.log(sum)
