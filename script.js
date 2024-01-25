@@ -187,28 +187,62 @@
 //
 // document.body.style.background = 'gray';
 
-const img = document.createElement("img");
+// const img = document.createElement("img");
+//
+// img.src = './3.jpg'
+//
+// document.body.appendChild(img);
+//
+// const desc = document.createElement("span");
+// desc.innerText = "Это дельфин";
+//
+// document.body.appendChild(desc);
+//
+// document.body.appendChild(desc);
+//
+// let a = document.querySelector(#a),
+//     b = document.getElementById(b),
+//     result = document.getElementsByClassName('result');
+//
+// a.addEventListener("change", () => {
+//    result[0].innerText = (a.value) + parseInt(b.value);
+//
+// });
+// b.addEventListener("change", () => {
+//     result[0].innerText = (a.value) + parseInt(b.value);
+//
+// });
 
-img.src = './3.jpg'
 
-document.body.appendChild(img);
-
-const desc = document.createElement("span");
-desc.innerText = "Это дельфин";
-
-document.body.appendChild(desc);
-
-document.body.appendChild(desc);
-
-let a = document.querySelector(#a),
-    b = document.getElementById(b),
-    result = document.getElementsByClassName('result');
-
-a.addEventListener("change", () => {
-   result[0].innerText = (a.value) + parseInt(b.value);
-
+const preloader = document.querySelector(".preloader");
+window.addEventListener("load", () => {
+  setTimeout(() => {
+      preloader.remove();
+  },1000 )
 });
-b.addEventListener("change", () => {
-    result[0].innerText = (a.value) + parseInt(b.value);
 
+// const  btn = document.querySelector(".them");
+//
+// btn.addEventListener("click", () => {
+//     if (document.body.style.background != "gray"){
+//         document.body.style.background = "gray";
+//     } else {
+//         document.body.style.background = "white"
+//     }
+// });
+
+const input = document.querySelector("#task"),
+    btm = document.querySelector("#btn"),
+    tasks = document.querySelector(".tasks");
+let score = 1;
+btn.addEventListener("click", () => {
+    const task = document.createElement("span");
+    const del = document.createElement("div")
+    del.classList.add("delBtn");
+    del.textContent = "del"
+    task.classList.add("task");
+    task.textContent = score + input.value + del;
+    score++;
+    tasks.appendChild(task);
+    input.value = '';
 });
