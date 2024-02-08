@@ -76,24 +76,24 @@
 // //         sum += numbers[i];
 // //     }
 // // }
-// // function helloUser() {
-// //     const username = prompt("Введите своё имя:");
-// //     const time = +prompt("Введите текущие время:");
-// //
-// //     if (time <= 0 || time > 6) {
-// //         return `Доброй ночи, ${username}!`;
-// //     } else if (time > 7 || time < 10) {
-// //         return `Доброе утро, ${username}!`;
-// //     } else if (time >= 11 || time < 18) {
-// //         return `Доброе день, ${username}!`;
-// //     }
-// //     else if (time >= 19 || time < 23) {
-// //         return `Добрый вечер, ${username}!`;
-// //     }
-// //     else {
-// //         return `Введенно не корректное значение!`
-// //     }
-// // }
+// function helloUser() {
+//     const username = prompt("Введите своё имя:");
+//     const time = +prompt("Введите текущие время:");
+//
+//     if (time <= 0 || time > 6) {
+//         return `Доброй ночи, ${username}!`;
+//     } else if (time > 7 || time < 10) {
+//         return `Доброе утро, ${username}!`;
+//     } else if (time >= 11 || time < 18) {
+//         return `Доброе день, ${username}!`;
+//     }
+//     else if (time >= 19 || time < 23) {
+//         return `Добрый вечер, ${username}!`;
+//     }
+//     else {
+//         return `Введенно не корректное значение!`
+//     }
+// }
 // //
 // // console.log(helloUser());
 // // let randomNumbers = [];
@@ -186,7 +186,6 @@
 // newH1.classList.add("active")
 //
 // document.body.style.background = 'gray';
-
 // const img = document.createElement("img");
 //
 // img.src = './3.jpg'
@@ -212,37 +211,65 @@
 //     result[0].innerText = (a.value) + parseInt(b.value);
 //
 // });
-
-
-const preloader = document.querySelector(".preloader");
-window.addEventListener("load", () => {
-  setTimeout(() => {
-      preloader.remove();
-  },1000 )
-});
-
-// const  btn = document.querySelector(".them");
 //
+//
+// const preloader = document.querySelector(".preloader");
+// window.addEventListener("load", () => {
+//   setTimeout(() => {
+//       preloader.remove();
+//   },1000 )
+// });
+//
+// // const  btn = document.querySelector(".them");
+// //
+// // btn.addEventListener("click", () => {
+// //     if (document.body.style.background != "gray"){
+// //         document.body.style.background = "gray";
+// //     } else {
+// //         document.body.style.background = "white"
+// //     }
+// // });
+//
+// const input = document.querySelector("#task"),
+//     btm = document.querySelector("#btn"),
+//     tasks = document.querySelector(".tasks");
+// let score = 1;
 // btn.addEventListener("click", () => {
-//     if (document.body.style.background != "gray"){
-//         document.body.style.background = "gray";
-//     } else {
-//         document.body.style.background = "white"
-//     }
+//     const task = document.createElement("span");
+//     const del = document.createElement("div")
+//     del.classList.add("delBtn");
+//     del.textContent = "del"
+//     task.classList.add("task");
+//     task.textContent = score + input.value + del;
+//     score++;
+//     tasks.appendChild(task);
+//     input.value = '';
 // });
 
-const input = document.querySelector("#task"),
-    btm = document.querySelector("#btn"),
-    tasks = document.querySelector(".tasks");
-let score = 1;
-btn.addEventListener("click", () => {
-    const task = document.createElement("span");
-    const del = document.createElement("div")
-    del.classList.add("delBtn");
-    del.textContent = "del"
-    task.classList.add("task");
-    task.textContent = score + input.value + del;
-    score++;
-    tasks.appendChild(task);
-    input.value = '';
-});
+
+var users = [
+    {name:"Камиль", login:"kamil", password:"kamil1" },
+    {name:"Саид", login:"said", password:"said1" }
+];
+
+let login = prompt("Введите свой логин: ");
+let password = prompt("Введите свой пароль: ");
+
+for (let i = 0; i < users.length; i++){
+    try {
+        if (login === users[i].login && password === users[i].password){
+            console.log("Привет")
+            break;
+        }
+        else {
+           throw new Error("Такого пользователя нет");
+        }
+    }
+    catch (err){
+        console.log("Ошибка!")
+        console.log("Название ошибки: ", err.name);
+        console.log("Описание ошибки: ", err.message);
+        break;
+    }
+};
+
