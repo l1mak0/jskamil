@@ -246,30 +246,106 @@
 //     input.value = '';
 // });
 
+//
+// var users = [
+//     {name:"Камиль", login:"kamil", password:"kamil1" },
+//     {name:"Саид", login:"said", password:"said1" }
+// ];
+//
+// let login = prompt("Введите свой логин: ");
+// let password = prompt("Введите свой пароль: ");
+//
+// for (let i = 0; i < users.length; i++){
+//     try {
+//         if (login === users[i].login && password === users[i].password){
+//             console.log("Привет")
+//             break;
+//         }
+//         else {
+//            throw new Error("Такого пользователя нет");
+//         }
+//     }
+//     catch (err){
+//         console.log("Ошибка!")
+//         console.log("Название ошибки: ", err.name);
+//         console.log("Описание ошибки: ", err.message);
+//         break;
+//     }
+// };
+//
 
-var users = [
-    {name:"Камиль", login:"kamil", password:"kamil1" },
-    {name:"Саид", login:"said", password:"said1" }
-];
+// function waitLoad() {
+//     return new Promise(resolve => {
+//         const btn = document.createElement("button");
+//         btn.innerText = "Нажмите, чтобы прогрузить файл";
+//         btn.addEventListener("load", () => {
+//             btn.innerText = "1"
+//             resolve();
+//         });
+//         document.body.appendChild(btn);
+//     });
+// }
+// waitLoad().then(() => {
+//     console.log(2)
+// })
 
-let login = prompt("Введите свой логин: ");
-let password = prompt("Введите свой пароль: ");
+function waitClick(element, text){
+    return new Promise(resolve => {
+        const btn = document.createElement("button");
+        btn.innerText = text;
 
-for (let i = 0; i < users.length; i++){
-    try {
-        if (login === users[i].login && password === users[i].password){
-            console.log("Привет")
-            break;
+
+        const clickDS = () => {
+            document.body.removeChild(btn);
+            resolve();
+        };
+        document.body.appendChild(btn);
+
+        btn.addEventListener("click", clickDS)
+    });
+}
+
+const element = document.querySelector("div");
+const text = "FGF";
+
+waitClick(element, text).then(() => {
+    console.log("Кнопка нажата")
+})
+function waitClick(element, text){
+    return new Promise(resolve => {
+        const btn = document.createElement("button");
+        btn.innerText = text;
+
+
+        document.body.appendChild(btn);
+
+        btn.addEventListener("click", function (){
+            document.body.removeChild(btn)
+        })
+    });
+}
+
+const element = document.querySelector("div");
+const text = "FGF";
+
+waitClick(element, text).then(() => {
+    console.log("Кнопка нажата");
+
+
+function wait(element, text) {
+    return new Promise(function (resolve, reject){
+        var count = 0;
+
+        function handleClick() {
+            count++;
+
+            if (count === 3){
+                document.body.removeEventListener("click", handleClick)
+                resolve();
+            }
         }
-        else {
-           throw new Error("Такого пользователя нет");
-        }
-    }
-    catch (err){
-        console.log("Ошибка!")
-        console.log("Название ошибки: ", err.name);
-        console.log("Описание ошибки: ", err.message);
-        break;
-    }
-};
+
+        document.body.addEventListener("click", handleClick)
+    })
+}
 
