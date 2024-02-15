@@ -289,63 +289,128 @@
 //     console.log(2)
 // })
 
-function waitClick(element, text){
-    return new Promise(resolve => {
-        const btn = document.createElement("button");
-        btn.innerText = text;
+// function waitClick(element, text){
+//     return new Promise(resolve => {
+//         const btn = document.createElement("button");
+//         btn.innerText = text;
+//
+//
+//         const clickDS = () => {
+//             document.body.removeChild(btn);
+//             resolve();
+//         };
+//         document.body.appendChild(btn);
+//
+//         btn.addEventListener("click", clickDS)
+//     });
+// }
+//
+// const element = document.querySelector("div");
+// const text = "FGF";
+//
+// waitClick(element, text).then(() => {
+//     console.log("Кнопка нажата")
+// })
+// function waitClick(element, text){
+//     return new Promise(resolve => {
+//         const btn = document.createElement("button");
+//         btn.innerText = text;
+//
+//
+//         document.body.appendChild(btn);
+//
+//         btn.addEventListener("click", function (){
+//             document.body.removeChild(btn)
+//         })
+//     });
+// }
+//
+// const element = document.querySelector("div");
+// const text = "FGF";
+//
+// waitClick(element, text).then(() => {
+//     console.log("Кнопка нажата");
+//
+//
+// function wait(element, text) {
+//     return new Promise(function (resolve, reject){
+//         var count = 0;
+//
+//         function handleClick() {
+//             count++;
+//
+//             if (count === 3){
+//                 document.body.removeEventListener("click", handleClick)
+//                 resolve();
+//             }
+//         }
+//
+//         document.body.addEventListener("click", handleClick)
+//     })
+// }
 
+// async function divide(a,b){
+//     if (b === 0 ){
+//         throw new Error("Делить на ноль нельзя!")
+//     }
+//     return a / b;
+// }
+//
+// async function main(){
+//     const a = +prompt("Введите первое число"),
+//         b = +prompt("Введите второе число");
+//
+//     try {
+//         const result = await divide(a,b);
+//         alert(`Результат: ${result}`)
+//     } catch (e){
+//         alert(`Ошибка: ${e.message}`)
+//     }
+// }
+//
+// main();
 
-        const clickDS = () => {
-            document.body.removeChild(btn);
-            resolve();
-        };
-        document.body.appendChild(btn);
+// function waitClick(element, text){
+//     const btn = document.createElement("button");
+//     const clickText = document.getElementById("clickText")
+//     var click = 0;
+//     btn.textContent = text;
+//     btn.addEventListener("click", () => {
+//         click++;
+//     })
+//     element.appendChild(btn);
+//     clickText.textContent = "Количество нажатия: " +  click;
+// }
+//
+// async function main(){
+//     await waitClick(document.body, "Нажми на меня!")
+// }
+//
+// main();
 
-        btn.addEventListener("click", clickDS)
+async function loadScript(src){
+    const script = document.createElement("script");
+    script.src = src;
+    script.addEventListener("load", () => {
+        console.log("Пакет загружен!")
+        particlesJS.load('particles-js', './particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
     });
-}
-
-const element = document.querySelector("div");
-const text = "FGF";
-
-waitClick(element, text).then(() => {
-    console.log("Кнопка нажата")
-})
-function waitClick(element, text){
-    return new Promise(resolve => {
-        const btn = document.createElement("button");
-        btn.innerText = text;
-
-
-        document.body.appendChild(btn);
-
-        btn.addEventListener("click", function (){
-            document.body.removeChild(btn)
-        })
+    script.addEventListener("error", () => {
+        throw new Error("Пакет не удалось загрузить!");
     });
+    document.body.appendChild(script);
 }
 
-const element = document.querySelector("div");
-const text = "FGF";
-
-waitClick(element, text).then(() => {
-    console.log("Кнопка нажата");
-
-
-function wait(element, text) {
-    return new Promise(function (resolve, reject){
-        var count = 0;
-
-        function handleClick() {
-            count++;
-
-            if (count === 3){
-                document.body.removeEventListener("click", handleClick)
-                resolve();
-            }
-        }
-
-        document.body.addEventListener("click", handleClick)
-    })
+async function main(){
+    try {
+        let load = await loadScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.js");
+    }
+    catch (errro){
+        console.log(errro.message);
+    }
 }
+
+main();
 
