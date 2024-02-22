@@ -388,29 +388,125 @@
 //
 // main();
 
-async function loadScript(src){
-    const script = document.createElement("script");
-    script.src = src;
-    script.addEventListener("load", () => {
-        console.log("Пакет загружен!")
-        particlesJS.load('particles-js', './particles.json', function() {
-            console.log('callback - particles.js config loaded');
-        });
-    });
-    script.addEventListener("error", () => {
-        throw new Error("Пакет не удалось загрузить!");
-    });
-    document.body.appendChild(script);
+// async function loadScript(src){
+//     const script = document.createElement("script");
+//     script.src = src;
+//     script.addEventListener("load", () => {
+//         console.log("Пакет загружен!")
+//         particlesJS.load('particles-js', './particles.json', function() {
+//             console.log('callback - particles.js config loaded');
+//         });
+//     });
+//     script.addEventListener("error", () => {
+//         throw new Error("Пакет не удалось загрузить!");
+//     });
+//     document.body.appendChild(script);
+// }
+//
+// async function main(){
+//     try {
+//         let load = await loadScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.js");
+//     }
+//     catch (errro){
+//         console.log(errro.message);
+//     }
+// }
+//
+// main();
+//
+
+
+// const btn1 = document.getElementById("btn1"),
+//     btn2 = document.getElementById("btn2"),
+//     btn3 = document.getElementById("btn3"),
+//     score = document.getElementById("score");
+//
+//
+// // localStorage.removeItem("score");
+//
+// btn1.addEventListener("click", () => {
+//     let finalyScore = +localStorage.getItem("score");
+//
+//     finalyScore++;
+//     score.textContent = finalyScore;
+//     localStorage.setItem("score", finalyScore);
+//
+//
+//     console.log(localStorage.getItem("score"))
+//
+// });
+// btn2.addEventListener("click", () => {
+//     let finalyScore = +localStorage.getItem("score");
+//
+//     finalyScore--;
+//     score.textContent = finalyScore;
+//     localStorage.setItem("score", finalyScore);
+//
+//
+//     console.log(localStorage.getItem("score"))
+//
+// });
+// btn3.addEventListener("click", () => {
+//     localStorage.removeItem("score")
+//     score.textContent = 0;
+// });
+
+// localStorage.clear();
+//
+// window.addEventListener("load", () => {
+//     const number = localStorage.length;
+//     const date = new Date()
+//     localStorage.setItem(`load_${number}`, new Date().toTimeString());
+//     console.log(localStorage);
+// });
+//
+// const user = {
+//     "id": 0,
+//     "firstName": "Ivan",
+//     "lastName": "Ivanov",
+//     "age": 34,
+// }
+//
+// const UserJson = JSON.stringify(user);
+//
+// console.log(UserJson);
+//
+// localStorage.setItem("user", UserJson);
+//
+//
+// console.log(localStorage.getItem("user"))
+
+// fetch("https://jsonplacholder.typecode.users")
+//     .then(res => res.json())
+//     .then(
+//         console.log
+//     )
+
+async function request(url){
+    const response = await fetch(url);
+    for (const [key, value] of response.headers){
+    }
+
+    fetch("https://dummyjson.com/posts/add", {
+        method: "GET",
+        headers: {
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify({
+            title: "Моя запись",
+            description: "Краткое описание моей записи",
+            userId:5
+        })
+    })
+        .then(res => res.json())
+        .then(console.log)
+
+
 }
 
-async function main(){
-    try {
-        let load = await loadScript("https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.js");
-    }
-    catch (errro){
-        console.log(errro.message);
-    }
-}
+fetch("https:/dummyjson.com/products")
+    .then(res => res.json())
+    .then(console.log)
 
-main();
+
 
