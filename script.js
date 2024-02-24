@@ -482,31 +482,104 @@
 //         console.log
 //     )
 
-async function request(url){
-    const response = await fetch(url);
-    for (const [key, value] of response.headers){
-    }
+// async function request(url){
+//     const response = await fetch(url);
+//     for (const [key, value] of response.headers){
+//     }
+//
+//     fetch("https://dummyjson.com/posts/add", {
+//         method: "GET",
+//         headers: {
+//             "Content-Type" : "application/json"
+//         },
+//         body: JSON.stringify({
+//             title: "Моя запись",
+//             description: "Краткое описание моей записи",
+//             userId:5
+//         })
+//     })
+//         .then(res => res.json())
+//         .then(console.log)
+//
+//
+// }
+//
+// fetch("https:/dummyjson.com/products")
+//     .then(res => res.json())
+//     .then(console.log)
+//
+//
 
-    fetch("https://dummyjson.com/posts/add", {
-        method: "GET",
-        headers: {
-            "Content-Type" : "application/json"
-        },
-        body: JSON.stringify({
-            title: "Моя запись",
-            description: "Краткое описание моей записи",
-            userId:5
-        })
-    })
-        .then(res => res.json())
-        .then(console.log)
 
+// const form = document.auth;
+// console.log(form);
+//
+// form.addEventListener("submit", (event) => {
+//     event.preventDefault()
+//
+//     const login = form.elements.namedItem("login").value,
+//         password = form.elements.namedItem("pass").value;
+//
+//     console.log(login, password)
+//
+//     // for (let i = 0; i < form.elements.length; i++){
+//     //     let item = form.elements[i];
+//     //     console.log(
+//     //         item.type + ", " +
+//     //         item.name + ", " +
+//     //         item.placeholder + ", " +
+//     //         item.value + "<br> "
+//     //     );
+//     // };
+// });
 
-}
+// const form = document.auth;
+//
+// form.addEventListener("submit", (e) => {
+//     // e.preventDefault();
+//
+//     const data = new FormData(form);
+//
+//     fetch("http://localhost:3000",{
+//         method: "POST",
+//         body: data
+//     })
+//
+//     // data.append("name", "ivan")
+//     // data.append("name", "ivanya")
+//     // data.set("age", 23)
+//     //
+//     // for (const [key, value ] of data){
+//     //     console.log(`${key}: ${value}`);
+//     // }
+// });
+//
 
-fetch("https:/dummyjson.com/products")
-    .then(res => res.json())
-    .then(console.log)
+// const calcForm = document.forms['calc'];
+//
+// let num1 = calcForm.elements.namedItem("num_1"),
+//     num2 = calcForm.elements.namedItem("num_2"),
+//     op = calcForm.elements.namedItem("op");
+//
+// const h3 = document.querySelector("h3");
+//
+// num1.addEventListener("input", ()  => {
+//     h3.textContent = eval(`${num1.value} ${op.value} ${num2.value}`);
+// });
+// num2.addEventListener("input", () => {
+//     h3.textContent = eval(`${num1.value} ${op.value} ${num2.value}`);;
+// });
 
+const reg = document.forms['reg'];
 
+let ema =
 
+reg.addEventListener("submit", (event) => {
+    event.preventDefault()
+
+    const login = reg.elements.namedItem("login").value,
+        password = reg.elements.namedItem("pass").value;
+
+    console.log(login, password)
+
+});
