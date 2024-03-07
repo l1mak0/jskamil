@@ -3,26 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./script.js" defer></script>
+
 </head>
 <body>
-<!--    <form name="calc">-->
-<!--        <input type="number" name="num_1" value="0">-->
-<!--        <input type="number" name="num_2" value="0">-->
-<!--        <select name="op">-->
-<!--            <option value="+">+</option>-->
-<!--            <option value="-">-</option>-->
-<!--            <option value="*">*</option>-->
-<!--            <option value="/">/</option>-->
-<!--        </select>-->
-<!--    </form>-->
-<!--    <h3 class="res"></h3>-->
-<form name="reg">
-    <input type="email" name="ema" placeholder="Введите свою электронную почту">
-    <input type="password" name="pass" placeholder="Введите пароль">
-    <input type="submit" value="Вход" disabled>
-
-</form>
-
+    <form name="calc">
+        <input type="number" id="num1">
+        <select id="operation">
+            <option value="+"></option>
+            <option value="-"></option>
+            <option value="*"></option>
+            <option value="/"></option>
+        </select>
+        <input type="number" id="num2">
+        <button id="btn">=</button>
+    </form>
+    <span class="result"></span>
+    <script type="module" src="./script.js" defer></script>
 </body>
 </html>

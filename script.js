@@ -570,16 +570,105 @@
 //     h3.textContent = eval(`${num1.value} ${op.value} ${num2.value}`);;
 // });
 
-const reg = document.forms['reg'];
+// const reg = document.forms['reg'];
+//
+// let ema =
+//
+// reg.addEventListener("submit", (event) => {
+//     event.preventDefault()
+//
+//     const login = reg.elements.namedItem("login").value,
+//         password = reg.elements.namedItem("pass").value;
+//
+//     console.log(login, password)
+//
+// });
 
-let ema =
+//-----------------------29.02.2024-------------------------------------
+// function check(str, subStr) {
+//     const regEx = new RegExp(subStr);
+//     return regEx.test(str);
+// }
+//
+// console.log(check(12345, 354));
 
-reg.addEventListener("submit", (event) => {
+// console.log(/love/i.test("I LOVE you".match(/love/ig)));
+
+// const str = `
+// 1строка!
+// 2строка!
+// 3строка!
+// `
+// console.log(str.match(/^\d/gm));
+
+// console.log(/\d\d/.test("29 Февраля"));
+
+// console.log(/(love)/.test("I love you"))
+// console.log(/(go)/.test("gogo"))
+// console.log("I love you".match(/(lo)(ve)/))
+// console.log("i love".replace(/(?:\w+) (\w+)/, `$2 $1`))
+// console.log(/html|js|css|php/.test("I love js"))
+
+// let input = "    f    ";
+// console.log(/\S/.test(input))
+//
+// let input = "    I love you        ";
+// console.log(input.replace(/^\s+|\s+$/, ''))
+// let input = "I              love                          you"
+// console.log(input.replace(/\s+/g, ' '));
+
+// let url = "https://www.google.com";
+// console.log(/^http(s)?:\/\/(\w+\.)+\w+/g.test(url));
+//
+// let url = "+7 (999) 600 27-31";
+// console.log(/^\d[0-9]+/g.test(url));
+
+
+// import * as def from "./functions.js";
+// import {user} from "./functions.js";
+//
+// //  console.log(sum(4,1));
+// //
+// // console.log(user.name)
+// //
+// // console.log(sky);
+// //
+// // print("Какое красивое небо")
+//
+// console.log(def.sky);
+// console.log(user.name);
+
+// let user = {
+//     name : "Ибрагим",
+//     age: 16,
+//     hav_lass: false,
+// }
+
+// import {user} from "./user.js";
+//
+// console.log(user.name)
+// console.log(user.coins)
+import * as calc from './functions.js';
+const btn = document.getElementById('btn'),
+    result = document.querySelector('.result');
+btn.addEventListener("click", (event) => {
+    const num1 = document.getElementById('num1'),
+        num2 = document.getElementById('num2'),
+        operation = document.getElementById('operation');
     event.preventDefault()
-
-    const login = reg.elements.namedItem("login").value,
-        password = reg.elements.namedItem("pass").value;
-
-    console.log(login, password)
-
+    switch (operation){
+        case "+":
+            result.textContent = calc.plus(num1, num2);
+            break;
+        case "-":
+            result.textContent = calc.minus(num1, num2);
+            break;
+        case "*":
+            result.textContent = calc.multipleid(num1, num2);
+            break;
+        case "/":
+            result.textContent = calc.devision(num1, num2);
+            break;
+    }
 });
+
